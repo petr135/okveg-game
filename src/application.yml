@@ -1,0 +1,3 @@
+okved:
+  url: https://raw.githubusercontent.com/bergstar/testcase/refs/heads/master/okved.json
+  timeoutSeconds: 30
