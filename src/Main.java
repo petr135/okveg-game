@@ -26,8 +26,20 @@ public class Main {
 
         okvedConfig = ConfigFactory.load().getOkved();
 
+        //TODO: поудмать над тем чтоб не грузить каждый раз, а грузить каждый день например  в 00:00,
+        // добавить какой-то планировщик
         var okvedTree = OkvedFactory.loadTree(okvedConfig);
         System.out.println("try get okved from url: " + okvedConfig.getUrl());
-
+        System.out.println("normalize phone: " + result.phone());
+        var okvedNodeByNumber = SearchOkved.getOkvedByNumber(result.phone(), okvedTree);
+        if(okvedNodeByNumber == null){
+            System.out.printf("okved  by number: %s not  found%n", result.phone());
+        }
+        else {
+            System.out.printf("okved text: %s by number: %s; okvedCode: %s%n"
+                    , okvedNodeByNumber.getName()
+                    , result.phone()
+                    , okvedNodeByNumber.getCode());
+        }
     }
 }
