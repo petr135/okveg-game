@@ -11,3 +11,6 @@ java.exe -jar ./okved.jar --search=89174501251
 java.exe -jar ./okved.jar --search=89174501251 --config=./application.yml
 ```
 
+Пример
+![img_1.png](img_1.png)
+
