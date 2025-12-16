@@ -5,11 +5,15 @@ public class Main {
 
         String search = null;
         OkvedConfig okvedConfig = null;
+        String configPath = "application.yml";
 
         for (String arg : args) {
+            if (arg.startsWith("--config=")) {
+                configPath = arg.substring("--config=".length());
+            }
+
             if (arg.startsWith("--search=")) {
                 search = arg.substring("--search=".length());
-                break;
             }
         }
 
@@ -24,7 +28,7 @@ public class Main {
             return;
         }
 
-        okvedConfig = ConfigFactory.load().getOkved();
+        okvedConfig = ConfigFactory.load(configPath).getOkved();
 
         //TODO: поудмать над тем чтоб не грузить каждый раз, а грузить каждый день например  в 00:00,
         // добавить какой-то планировщик

@@ -17,6 +17,7 @@ public final class LengthNormalizeStep implements NormalizationStep {
             return;
         }
 
-        throw new NormalizationException("invalid length");
+        throw new NormalizationException("неверный формат телеофона, должно быть 11 цифр, пример: " +
+                "89179876541");
     }
 }

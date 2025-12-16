@@ -9,11 +9,11 @@ public class ConfigFactory {
 
     private ConfigFactory() {}
 
-    public static AppConfig load() {
+    public static AppConfig load(String configPath) {
 
         try (InputStream in = ConfigFactory.class
                 .getClassLoader()
-                .getResourceAsStream("application.yml")) {
+                .getResourceAsStream(configPath)) {
 
             if (in == null) {
                 throw new RuntimeException("application.yml not found");
